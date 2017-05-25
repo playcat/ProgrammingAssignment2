@@ -3,6 +3,8 @@
 ## significant speed-ups when no changes have been applied
 ## to matrix
 
+### Please find a comments in the bottom showing how to test
+
 ## This function creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
   mi <- NULL
@@ -40,3 +42,14 @@ cacheSolve <- function(x, ...) {
   x$setInverse(mi)
   mi
 }
+
+#### To test do the following:
+## x <- matrix(c(1, 1, 0, 1))
+## xx <- makeCacheMatrix(x)
+## cacheSolve(xx)
+#### and one more time to get cached
+## cacheSolve(xx)
+#### ... and now invert this one
+## xxx <- makeCacheMatrix(xx$get())
+## cacheSolve(xxx)
+#### result is same as x
