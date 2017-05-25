@@ -44,12 +44,15 @@ cacheSolve <- function(x, ...) {
 }
 
 #### To test do the following:
-## x <- matrix(c(1, 1, 0, 1))
+## x <- matrix(c(1, 1, 0, 1), nrow = 2, ncol = 2)
 ## xx <- makeCacheMatrix(x)
 ## cacheSolve(xx)
 #### and one more time to get cached
 ## cacheSolve(xx)
 #### ... and now invert this one
-## xxx <- makeCacheMatrix(xx$get())
-## cacheSolve(xxx)
+## xxx <- cacheSolve(xx)
+## xxxx <- makeCacheMatrix(xxx)
+## cacheSolve(xxxx)
 #### result is same as x
+#### ... and now one more time again, to get cached
+## cacheSolve(xxxx)
